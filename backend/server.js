@@ -1,24 +1,35 @@
 
 const express = require('express');
-const app = express();
-const PORT = 3000;
-const HOST = 'localhost'
-
-
+const cors = require('cors');
+const dotenv = require('dotenv')
 const taskRoutes = require('./routes/taskRoutes')
 
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT ;
+const HOST = process.env.HOST ;
+
+
 app.use(express.json());
+
+app.use(cors({
+    origin:'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}))
+
+
 app.use('/api/tasks', taskRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).json({
-        message: 'Bienvenido a la API de tareas',
+        message: 'Welcome to the Task Manager API',
     })
 }
 )
 
 
 app.listen(PORT, HOST, () => {
-    console.log(`El servidor esta corriendo en el puerto http://${HOST}:${PORT}`);
+    console.log(`Server running http://${HOST}:${PORT}`);
 })
 
