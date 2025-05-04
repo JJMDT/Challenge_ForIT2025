@@ -1,0 +1,42 @@
+/* App.css */
+
+.app-container {
+    display: flex;           /* 🔑 Pone los hijos (Sidebar y main-container) uno al lado del otro */
+    height: 100vh;           /* Ocupa toda la altura de la ventana */
+  }
+  
+  .sidebar {
+    width: 200px;            /* Ancho fijo para el sidebar */
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .main-container {
+    flex: 1;                 /* Ocupa el resto del espacio */
+    padding: 20px;
+    overflow-y: auto;        /* Permite scroll si el contenido es largo */
+  }
+  .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    background-color: #444;
+    background-color: #da8c18;
+    background-color: #288df8;
+    
+
+  }
+  .nav-link:hover {
+    text-decoration: none;
+  }
+  
