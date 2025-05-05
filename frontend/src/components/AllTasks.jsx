@@ -155,10 +155,11 @@ const AllTasks = () => {
             <div className="task-details"   onClick={() => navigate(`/tasks/${task.id}`)}
               style={{ cursor: "pointer" }}>
 
-            <label>ID: {task.id} </label>
+            {/* <label>ID: {task.id} </label> */}
             <label>
               Title: {task.title}
             </label>
+            <label>{task.createdAt}</label>
             <label>Status: {task.completed ? "Completed" : "Pending"} </label>
             </div>
 
