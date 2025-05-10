@@ -55,7 +55,17 @@ TaskApp es una aplicación web diseñada para ayudarte a organizar y gestionar t
 
 Una vez clonado el repositorio, sigue estos pasos para instalar las dependencias tanto del frontend como del backend.
 
-cd challenge_ForIT2025/backend
+Ingresa a la carpeta challenge_ForIT2025
+
+cd challenge_ForIT2025
+
+Cambia a la rama developer:
+
+git chekout developer
+
+Ingresa a la carpeta backend:
+
+cd /backend
 
 Instala las dependencias del backend:
 
