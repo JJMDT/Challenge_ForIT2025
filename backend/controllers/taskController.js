@@ -1,5 +1,13 @@
 const Task = require("../model/task");
+const fs = require('fs')
+const path = require('path')
+const tareasPath = path.join(__dirname,'../tareas.json')
+
 let myTasks = [];
+if(fs.existsSync(tareasPath)){
+  const data = fs.readFileSync(tareasPath,'utf-8')
+  myTasks = JSON.parse(data)
+}
 
 const getAllTasks = (req, res) => {
   if (myTasks.length === 0) {
@@ -43,6 +51,7 @@ const createTask = (req, res) => {
   }
   const newTask = new Task(title, description);
   myTasks.push(newTask);
+  fs.writeFileSync(tareasPath, JSON.stringify(myTasks, null, 2)); 
   res.status(201).json({
     message: "Task created successfully",
     task: newTask,
@@ -59,6 +68,8 @@ const deleteTask = (req, res) => {
     });
   }
   myTasks = filter;
+  fs.writeFileSync(tareasPath, JSON.stringify(myTasks, null, 2)); // ✅ actualizar archivo
+
   res.status(200).json({
     message: "Task deleted successfully",
     tasks: myTasks,
@@ -97,6 +108,7 @@ const updateTask = (req, res) => {
     
     task.completed = completed;
   } 
+  fs.writeFileSync(tareasPath, JSON.stringify(myTasks, null, 2)); // ✅ guardar cambios
 
   res.status(200).json({
     message: "Update task successfully",
