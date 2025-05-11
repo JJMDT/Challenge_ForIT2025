@@ -7,7 +7,7 @@ const taskRoutes = require('./routes/taskRoutes')
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000 ;
-const HOST = process.env.HOST || 'localhost' ;
+const HOST = process.env.HOST || '0.0.0.0';  // Cambié localhost a 0.0.0.0
 
 
 app.use(express.json());
